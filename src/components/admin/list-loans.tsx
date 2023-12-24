@@ -38,8 +38,8 @@ const ListLoans = () => {
     setLoading(true);
     await dispatch(
       fetchLoans({
-        min_amount: range[0],
-        max_amount: range[1] * 10000,
+        min_amount: range[0] * 1e3,
+        max_amount: range[1] * 1e3,
         approval_status: approvalStatus
       })
     );
@@ -105,7 +105,7 @@ const ListLoans = () => {
             onChange={handleChange}
             valueLabelDisplay='auto'
             step={5}
-            valueLabelFormat={num => (num === 0 ? num : `$${num * 10}k`)}
+            valueLabelFormat={num => (num === 0 ? num : `$${num}k`)}
             sx={{ color: 'white' }}
           />
         </Grid>

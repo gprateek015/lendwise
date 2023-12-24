@@ -13,11 +13,11 @@ const Auth = () => {
 
   useEffect(() => {
     if (isLoggedIn) {
-      if (state?.pathname) {
-        navigate(state.pathname + state.search);
+      if (data.user_type === 'admin') {
+        navigate('/admin');
       } else {
-        if (data.user_type === 'admin') {
-          navigate('/admin');
+        if (state?.pathname) {
+          navigate(state.pathname + state.search);
         } else {
           navigate('/consumer/new-loan');
         }
