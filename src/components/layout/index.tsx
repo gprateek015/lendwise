@@ -1,12 +1,23 @@
 import React from 'react';
-import { Grid, IconButton, Typography, useMediaQuery } from '@mui/material';
+import {
+  // Button,
+  Grid,
+  IconButton,
+  Typography,
+  useMediaQuery
+} from '@mui/material';
 import Typewriter from 'typewriter-effect';
 import { Outlet } from 'react-router-dom';
 import { scrollToBottom } from '../../utils';
 import ArrowCircleDownIcon from '@mui/icons-material/ArrowCircleDown';
+import { useDispatch, useSelector } from '../../redux/store';
+import { logout } from '../../redux/slice/user';
+import Button from '../custom-button';
 
 const Layout = () => {
+  const dispatch = useDispatch();
   const isLaptop = useMediaQuery('(min-width:900px)');
+  const { isLoggedIn } = useSelector(state => state.user);
 
   return (
     <Grid
@@ -24,6 +35,19 @@ const Layout = () => {
         position: 'relative'
       }}
     >
+      {isLaptop && isLoggedIn && (
+        <Button
+          onClick={() => dispatch(logout())}
+          sx={{
+            position: 'fixed',
+            top: { xs: '10px', md: '40px' },
+            right: { xs: '20px', md: '40px' },
+            width: '150px'
+          }}
+        >
+          Logout
+        </Button>
+      )}
       <Grid
         sx={{
           display: 'flex',
@@ -86,20 +110,38 @@ const Layout = () => {
         }}
       >
         {!isLaptop && (
-          <Typography
+          <Grid
             sx={{
-              fontWeight: '600',
-              fontSize: '30px',
-              color: 'transparent',
-              background: 'linear-gradient(247deg, #4a0071, #9f8fa5)',
-              backgroundClip: 'text',
+              display: 'flex',
+              justifyContent: 'space-between',
+              width: '100%',
               position: 'absolute',
               top: '10px',
               left: '0px'
             }}
           >
-            LendWise
-          </Typography>
+            <Typography
+              sx={{
+                fontWeight: '600',
+                fontSize: '30px',
+                color: 'transparent',
+                background: 'linear-gradient(247deg, #4a0071, #9f8fa5)',
+                backgroundClip: 'text'
+              }}
+            >
+              LendWise
+            </Typography>
+            {isLoggedIn && (
+              <Button
+                onClick={() => dispatch(logout())}
+                sx={{
+                  width: '150px'
+                }}
+              >
+                Logout
+              </Button>
+            )}
+          </Grid>
         )}
         <Grid
           sx={{

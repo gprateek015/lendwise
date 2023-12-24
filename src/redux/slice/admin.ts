@@ -1,10 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { Installment, Loan } from '../../types';
-import { fetchAllLoans, repayLoan, requestNewLoan } from '../../actions/loan';
-import {
-  fetchUnpaidInstallments,
-  repayInstallment
-} from '../../actions/installment';
+import { Loan } from '../../types';
 import { fetchLoans } from '../../actions/admin';
 
 type InitialStateType = {

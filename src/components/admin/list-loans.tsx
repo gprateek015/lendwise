@@ -13,7 +13,7 @@ const ListLoans = () => {
   const [approvalStatus, setApprovalStatus] = useState<
     'approved' | 'pending' | ''
   >('');
-  const [range, setRange] = React.useState<number[]>([20, 37]);
+  const [range, setRange] = React.useState<number[]>([0, 45]);
   const [loading, setLoading] = useState(false);
 
   const minDistance = 5;
