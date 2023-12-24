@@ -1,46 +1,21 @@
-# Getting Started with Create React App
+# LendWise
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+It's an assessment for Techdome. The website is built on React.js and Typescript, I have used Material UI as the CSS framework and React Router Dom v6 for navigation. 
 
-## Available Scripts
+### Prerequsite to run the server
+  You must have the node.js and npm installed in your computer
 
-In the project directory, you can run:
+### To run the server in your local device follow the following steps : 
+  -  Take the clone of this repository
+  -  run `npm install` to install all the libraries
+  -  run `npm start` to start the project
 
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+### How to use it?
+ - You can easily create an account for yourself, It will have the user type as consumer by default.
+ - After loging in into the website you can request for a loan by just entering the loan amount and the duration (in weeks).
+ - You can track all the loans you have requested with their states as approved | pending | paid.
+ - All the unpaid installments for the approved loan can also be tracked on the same page by just switching to Pending Installments tab.
+ - The admin can approve the loan, and also fetch loans with basic filters.
+ - If you want to checkout the admin account or want to approve your loan, login with the following credentials
+   - Mobile Number: `9999999999`
+   - Password: `admin` 
