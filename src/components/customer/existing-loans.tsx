@@ -1,10 +1,9 @@
-import { Box, Grid, IconButton, Typography } from '@mui/material';
+import { Box, CircularProgress, Grid, Typography } from '@mui/material';
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from '../../redux/store';
 import { fetchAllLoans } from '../../actions/loan';
 import { Switch } from './style';
-import { Installment, Loan } from '../../types';
 
 import InstallmentTable from './installment-table';
 import LoanBox from '../loan-box';
@@ -22,10 +21,15 @@ const ExistingLoans = () => {
 
   const [expandedLoan, setExpandedLoan] = useState<string | null>(null);
   const [page, setPage] = useState(0);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    if (page === 0) dispatch(fetchAllLoans());
-    else dispatch(fetchUnpaidInstallments());
+    (async () => {
+      setLoading(true);
+      if (page === 0) await dispatch(fetchAllLoans());
+      else await dispatch(fetchUnpaidInstallments());
+      setLoading(false);
+    })();
   }, [page]);
 
   return (
@@ -67,6 +71,18 @@ const ExistingLoans = () => {
       </Grid>
 
       <Grid flexGrow={1} overflow={'auto'}>
+        {loading && (
+          <Box
+            sx={{
+              height: '100%',
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center'
+            }}
+          >
+            <CircularProgress sx={{ color: 'white' }} />
+          </Box>
+        )}
         <>
           {page === 0 ? (
             <>

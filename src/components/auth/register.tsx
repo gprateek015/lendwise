@@ -1,11 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import {
-  Box,
-  CircularProgress,
-  FormHelperText,
-  Grid,
-  Typography
-} from '@mui/material';
+import { Box, FormHelperText, Grid, Typography } from '@mui/material';
 import { InputField, InputLabel } from './style';
 import PasswordField from './password-field';
 import { useNavigate } from 'react-router-dom';
@@ -51,10 +45,6 @@ const Register = () => {
       dispatch(clearError());
     };
   }, []);
-
-  useEffect(() => {
-    console.log(errors);
-  }, [errors]);
 
   return (
     <Grid
